@@ -65,7 +65,7 @@ def fill_queue(links):
 
 
 def fill_queue(links):
-    for i in range(200, 500):
+    for i in range(500 , len(links)):
         queue.put(links[i])
 
 def check_link(link):
