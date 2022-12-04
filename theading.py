@@ -25,11 +25,11 @@ def random_array():
     # return np.random.randint(-1,1, (100,5))
     return trunc(np.random.normal(0, 1, (1000,40)), 2)
 
-array = random_array()
-print(array)
-n = trunc(np.random.normal(0, 1, (40)), 2)
+M = random_array()
+print(M)
+N = trunc(np.random.normal(0, 1, (40)), 2)
 
-print(n)
+print(N)
 
 # take n and find most similar row in array
 def find_similar_row(array, n):
@@ -37,7 +37,15 @@ def find_similar_row(array, n):
     # find the sum of the difference
     # find the row with the lowest sum of difference
     # return the row
-    return array[np.argmin(np.sum(np.abs(array - n), axis=1))]
+    # return array[np.argmin(np.sum(np.abs(array - n), axis=1))]
+    return M[np.argmax(np.dot(N, M.T)/(np.linalg.norm(M)*np.linalg.norm(N)))]
 
-print(find_similar_row(array, n))
+# print(find_similar_row(array, n))
+print(find_similar_row(M,N))
     
+# get div with class from beautiful soup
+def get_div_class(soup, class_name):
+    return soup.find('div', class_=class_name)
+# get text from div with class
+def get_text_from_div_class(soup, class_name):
+    return get_div_class(soup, class_name).text 

@@ -15,6 +15,8 @@ def get_links(url):
         links.append(link.get('href'))
     return links
 
+
+
 links = []
 valid_links = []
 arr = []
